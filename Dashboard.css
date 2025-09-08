@@ -1,0 +1,522 @@
+:root {
+    --bg: #fff;
+    --sub: #f7f2ef;
+    /* nền sidebar */
+    --peach: #f6c7bb;
+    /* header peach */
+    --peach-2: #f4d7cf;
+    /* nhạt hơn */
+    --text: #2f2f2f;
+    --muted: #6f6f6f;
+    --line: #e7dad5;
+    --chip: #e9e6e4;
+    --brand: #e39b8b;
+    --shadow: 0 8px 24px rgba(0, 0, 0, .12);
+    --radius: 16px;
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg)
+}
+
+/* ===== TOPBAR ===== */
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 18px 0 16px;
+    background: var(--peach);
+    border-bottom: 1px solid #e6b9ae;
+}
+
+.filter-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr; /* 4 cột bằng nhau */
+  gap: 16px; /* khoảng cách giữa các cột */
+  margin-bottom: 20px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #2f2f2f;
+}
+
+.input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #e7dad5;
+  border-radius: 12px;
+  background: #f8ebe6;
+  padding: 0 12px;
+  font-size: 14px;
+  color: #555;
+}
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800
+}
+
+.brand .logo {
+    width: auto;
+    height: 60px;
+    border-radius: 6px;
+    background: linear-gradient(90deg);
+    position: relative
+}
+
+.brand .logo::after {
+    content: "TBS";
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-weight: 900;
+    color: #ea2c0a
+}
+
+.topnav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    font-weight: 600
+}
+
+.topnav a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #4a3a36
+}
+
+.topnav svg {
+    width: 18px;
+    height: 18px
+}
+
+/* ===== LAYOUT ===== */
+.layout {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    min-height: calc(100vh - 60px)
+}
+
+.sidenav {
+    background: var(--sub);
+    border-right: 1px solid var(--line);
+    padding: 14px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.side-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 44px;
+    padding: 0 10px;
+    border-radius: 12px;
+    background: #f0e7e3;
+    color: #564b47;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, .06) inset;
+    cursor: pointer;
+    user-select: none;
+}
+
+.side-item svg {
+    width: 18px;
+    height: 18px
+}
+
+.main {
+    padding: 22px 24px 100px;
+    background: linear-gradient(180deg, #ffffff 40%, #fff 40%), #fff
+}
+
+.card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: var(--shadow)
+}
+
+/* ===== FILTER ROW ===== */
+.filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    margin: 8px 0 18px
+}
+
+.field {
+    position: relative
+}
+
+.label {
+    display: block;
+    font-size: 13px;
+    color: #6d645f;
+    margin-bottom: 6px
+}
+
+.input,
+.select {
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #f8ebe6;
+    outline: none;
+    padding: 0 36px 0 12px;
+    color: #797777;
+    font-size: 14px;
+}
+
+.icon-right {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    width: 18px;
+    height: 18px;
+    opacity: .7
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    position: relative;
+    cursor: pointer;
+    width: 24px;   /* tăng kích thước icon */
+    height: 24px;
+    transform: translateX(10px); /* dịch qua trái/phải */
+}
+
+/* Áp dụng cho input giờ */
+input[type="time"]::-webkit-calendar-picker-indicator {
+    position: relative;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    transform: translateX(10px); /* chỉnh tương tự */
+}
+
+.chev {
+    position: absolute;
+    right: 12px;
+    top: 31px;
+    width: 14px;
+    height: 14px;
+    opacity: .7
+}
+
+/* ===== TABLE ===== */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0
+}
+
+thead th {
+    background: #f7e2db;
+    text-align: left;
+    padding: 10px 12px;
+    font-size: 14px
+}
+
+th,
+td {
+    border: 1px solid var(--line)
+}
+
+th:first-child,
+td:first-child {
+    border-left: 1px solid var(--line)
+}
+
+th:last-child,
+td:last-child {
+    border-right: 1px solid var(--line)
+}
+
+thead th:first-child {
+    border-top-left-radius: 12px
+}
+
+thead th:last-child {
+    border-top-right-radius: 12px
+}
+
+tbody td {
+    padding: 14px 12px;
+    background: #fff
+}
+
+tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 12px
+}
+
+tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 12px
+}
+
+.room {
+    width: 220px;
+    color: #5a5451
+}
+
+.timeline {
+    position: relative;
+    height: 44px;
+    background: #fbf7f5;
+    border-radius: 8px;
+    border: 1px solid #efe3df
+}
+
+.slot {
+  position: absolute;
+  top: 8px;               /* đặt ô nằm giữa .timeline (44px) */
+  height: 28px;
+  line-height: 28px;      /* canh giữa theo chiều dọc bằng line-height */
+  left: var(--left, 0%);  /* dùng biến để set vị trí */
+  width: var(--width, 0%);/* dùng biến để set độ rộng */
+
+  text-align: center;     /* canh giữa theo chiều ngang */
+  padding: 0 6px;         /* đệm đều 2 bên cho đẹp */
+  white-space: nowrap;    /* tránh xuống dòng */
+  overflow: hidden;       /* chống tràn */
+  text-overflow: ellipsis;/* tràn thì hiện … */
+  background: #dfdbd8;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #333;
+}
+
+.slot.dark {
+    background: #c9c5c2
+}
+
+/* ví dụ vị trí slot theo phần trăm (7h — 17h là 100%) */
+.s-7-930 {
+  left: 29.17%;
+  width: 10.42%;
+}
+
+.s-10-1130 {
+  left: 41.67%;
+  width: 6.25%;
+}
+
+.s-13-15 {
+  left: 54.17%;
+  width: 8.33%;
+}
+
+.s-15-17 {
+  left: 62.5%;
+  width: 8.33%;
+}
+
+/* ===== BUTTON ===== */
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 18px
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 42px;
+    padding: 0 18px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    letter-spacing: .2px;
+    outline: none;
+    transition: transform .05s ease, filter .2s ease, box-shadow .2s ease;
+    box-shadow: #f7e2db;
+}
+button.btn {
+  border: none;                 /* bỏ viền mặc định */
+  outline: none;                /* bỏ viền xanh khi focus */
+  background: var(--focus, #f2b8a3); /* màu nền chính (có fallback nếu chưa khai báo biến) */
+  color: #452b2b;               /* màu chữ */
+  padding: .75rem 1rem;         /* khoảng cách bên trong */
+  border-radius: .8rem;         /* bo góc */
+  font-weight: 600;             /* chữ đậm vừa */
+  font-size: 1rem;              /* cỡ chữ */
+  cursor: pointer;              /* hiện con trỏ bàn tay */
+  text-decoration: none;        /* bỏ gạch chân */
+  display: inline-block;        /* để chỉnh padding dễ */
+  transition: background 0.25s, transform 0.15s; /* hiệu ứng mượt */
+}
+
+/* Hover */
+button.btn:hover {
+  background: #e89d84; /* đậm hơn một chút khi hover */
+}
+
+/* Focus (khi tab bằng bàn phím) */
+button.btn:focus {
+  box-shadow: 0 0 0 3px rgba(242, 184, 163, 0.5);
+}
+
+/* Active (khi nhấn giữ chuột) */
+button.btn:active {
+  background: #d8856a; 
+  transform: scale(0.97); /* hơi thu nhỏ tạo cảm giác nhấn */
+}
+
+
+.btn:active {
+    transform: translateY(1px);
+    box-shadow: #f7e2db;
+}
+
+.btn-primary {
+    background: linear-gradient(180deg, #f0a899, #e39b8b);
+    color: #3a2a27;
+    box-shadow: 0 8px 22px rgba(227, 155, 139, .55);
+    min-width: 150px
+}
+
+.btn-primary:hover {
+    filter: brightness(1.02);
+    box-shadow: 0 12px 26px rgba(227, 155, 139, .6)
+}
+.btn {
+  border: 0;
+  background: var(--focus);
+  color: #452b2b;
+  padding: .75rem 1rem;
+  border-radius: .8rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn.gray {
+  background: #f3f3f3;
+  color: #222;
+  font-weight: 500;
+}
+
+/* Modal */
+.modal {position: fixed; inset: 0; display: none;}
+.modal:target {display: block;}
+
+.modal__overlay {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,.35);
+}
+
+.modal__card {
+  position: relative; z-index: 1;
+  width: min(640px, 92vw);
+  margin: 8vh auto;
+  background: var(--bg);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+  padding: 16px;
+  border: 1px solid var(--border);
+}
+
+.modal__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.modal__title {margin: 0; font-size: 18px;}
+
+.modal__close {
+  font-size: 26px; line-height: 1;
+  text-decoration: none;
+  color: #666; padding: 4px 10px;
+}
+
+/* Form */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.field {display: flex; flex-direction: column; gap: 6px;}
+.field span {font-size: 13px; color: #555;}
+
+.field input,
+.field select,
+.field textarea {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  outline: none;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--focus);
+  box-shadow: 0 0 0 3px rgba(242,184,163,.25);
+}
+
+.col-2 {grid-column: span 2;}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+    .layout {
+        grid-template-columns: 60px 1fr 
+    }
+
+    .side-item span {
+        display: none
+    }
+
+    .filters {
+        grid-template-columns: 1fr 1fr 
+    }
+      .filter-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+    .room {
+        width: 160px
+    }
+}
+    @media (max-width: 480px) {
+  .filter-row {
+    grid-template-columns: 1fr;
+  }
+}
