@@ -109,7 +109,9 @@ background:var(--bg);
   cursor:pointer; 
   user-select:none;
 }
-.side-item svg{ width:18px; height:18px; }
+.side-item:hover{background:#e1b29e}
+.side-item svg{ width:18px; height:18px;
+box-shadow:0 6px px rgba(0,0,0,.06) inset;  }
 
 .main{ 
   padding:22px 24px 100px; 
@@ -258,6 +260,7 @@ tbody tr:last-child td:last-child{
   color:#452b2b;
   transition:background .25s, transform .15s, box-shadow .2s;
 }
+
 button.btn{ 
   -webkit-appearance:none; 
   appearance:none; 

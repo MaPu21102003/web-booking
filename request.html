@@ -228,13 +228,12 @@
                             <!-- Nội dung người đăng ký (hiển thị lại) -->
                             <label class="field col-2">
                             <span>Nội dung đăng ký</span>
-                            <textarea name="nd_dangky" readonly>
+                            <textarea class="js-autosize" name="nd_dangky" readonly>
 Nguyễn Văn A - Phòng IT
 Phòng họp: Phòng ICD 30
-Thời gian: 12/09/2025, 09:00 - 10:30
-Nội dung: Họp dự án A                                                                                                                              </textarea>
+Thời gian: 12/09/2025, 09:00 - 10:30                                                
+Nội dung: Họp dự án A </textarea>                                                                                                                                          </textarea>
                             </label>
-
                             <!-- Tên người phê duyệt -->
                             <label class="field">
                             <span>Người phê duyệt</span>
@@ -249,8 +248,13 @@ Nội dung: Họp dự án A                                                    
 
                             <!-- Thời gian phê duyệt (auto now) -->
                             <label class="field">
-                            <span>Thời gian phê duyệt</span>
-                            <input id="approveTime" type="text" readonly data-now>
+                            <span>Ngày phê duyệt</span>
+                            <input type="text" readonly data-date>
+                            </label>
+
+                            <label class="field">
+                            <span>Giờ phê duyệt</span>
+                            <input type="text" readonly data-time>
                             </label>
                         </div>
 
@@ -264,54 +268,54 @@ Nội dung: Họp dự án A                                                    
 
 
                     <!-- ===== Modal TỪ CHỐI (đặt riêng, KHÔNG lồng nhau) ===== -->
-                    <div id="approveModal" class="modal" aria-hidden="true">
+                    <div id="rejectModal" class="modal" aria-hidden="true">
                     <div class="modal__overlay"></div>
-                    <div class="modal__card" role="dialog" aria-modal="true" aria-labelledby="title-pd">
+                    <div class="modal__card" role="dialog" aria-modal="true" aria-labelledby="title-reject">
                         <div class="modal__head">
-                        <h3 id="title-pd" class="modal__title">Từ Chối Phê Duyệt</h3>
+                        <h3 id="title-reject" class="modal__title">Từ chối yêu cầu phòng họp</h3>
                         <button type="button" class="modal__close" aria-label="Đóng">&times;</button>
                         </div>
 
                         <form action="#" method="post">
                         <div class="form-grid">
-                            <!-- Thông tin hiển thị lại cho người duyệt -->
-                            <label class="field">
-                            <span>Người đăng ký</span>
-                            <input type="text" value="Nguyễn Văn A - Phòng IT" readonly>
-                            </label>
-
-                            <label class="field">
-                            <span>Ngày/Giờ họp</span>
-                            <input type="text" value="12/09/2025, 09:00 - 10:30" readonly>
-                            </label>
-
                             <label class="field col-2">
-                            <span>Nội dung cuộc họp</span>
-                            <textarea readonly>Họp dự án A</textarea>
+                            <span>Nội dung đăng ký</span>
+                            <textarea class="js-autosize" name="nd_dangky" readonly>
+Nguyễn Văn A - Phòng IT
+Phòng họp: Phòng ICD 30
+Thời gian: 12/09/2025, 09:00 - 10:30
+Nội dung: Họp dự án A </textarea>
                             </label>
 
-                            <!-- Người phê duyệt -->
                             <label class="field">
                             <span>Người phê duyệt</span>
-                            <input name="nguoipheduyet" placeholder="Tên người phê duyệt">
+                            <input name="nguoipheduyet" placeholder="Nhập tên người phê duyệt">
                             </label>
 
                             <label class="field">
-                            <span>Ngày/Giờ phê duyệt</span>
-                            <!-- id này để JS set thời gian hiện tại -->
-                            <input id="approveTime" type="text" readonly>
+                            <span>Phòng ban</span>
+                            <input name="pb_pheduyet" placeholder="Phòng ban...">
                             </label>
 
-                            <!-- Ghi chú -->
+                            <label class="field">
+                            <span>Ngày phê duyệt</span>
+                            <input type="text" readonly data-date>
+                            </label>
+
+                            <label class="field">
+                            <span>Giờ phê duyệt</span>
+                            <input type="text" readonly data-time>
+                            </label>
+
                             <label class="field col-2">
-                            <span>Ghi chú phê duyệt</span>
-                            <textarea name="ghichu" placeholder="Ví dụ: Được sử dụng thêm máy chiếu..."></textarea>
+                            <span>Lý do từ chối</span>
+                            <textarea name="lydo" placeholder="Ví dụ: trùng lịch, không đáp ứng điều kiện..." required></textarea>
                             </label>
                         </div>
 
                         <div class="actions">
                             <button type="button" class="btn gray js-cancel">Hủy</button>
-                            <button class="btn" type="submit">Xác nhận phê duyệt</button>
+                            <button class="btn danger" type="submit">Xác nhận từ chối</button>
                         </div>
                         </form>
                     </div>
@@ -319,47 +323,61 @@ Nội dung: Họp dự án A                                                    
                     <!-- ===== JS: mở/đóng modal + set thời gian hiện tại ===== -->
                     <script>
                     document.addEventListener('DOMContentLoaded', () => {
-                        function wireModal(openBtnId, modalId) {
+                    function wireModal(openBtnId, modalId) {
                         const openBtn  = document.getElementById(openBtnId);
                         const modal    = document.getElementById(modalId);
                         const overlay  = modal.querySelector('.modal__overlay');
                         const closeX   = modal.querySelector('.modal__close');
                         const cancel   = modal.querySelector('.js-cancel');
 
-                        const open  = () => {
-                            modal.classList.add('is-open');
-                            modal.setAttribute('aria-hidden', 'false');
-                            document.body.style.overflow = 'hidden';
+                        const setNow = (container) => {
+                        const now = new Date();
 
-                            // Nếu là modal phê duyệt thì set thời gian hiện tại
-                            if (modalId === 'approveModal') {
-                            const now = new Date();
-                            const formatted = now.toLocaleString('vi-VN', { hour12: false });
-                            const timeInput = modal.querySelector('#approveTime');
-                            if (timeInput) timeInput.value = formatted;
-                            }
+                        // Lấy ngày theo định dạng Việt Nam
+                        const dateStr = now.toLocaleDateString('vi-VN'); // ví dụ: 15/9/2025
+                        const timeStr = now.toLocaleTimeString('vi-VN', { hour12: false }); // ví dụ: 10:51:22
+
+                        // Gán vào ô tương ứng trong modal
+                        const dateInput = container.querySelector('input[data-date]');
+                        const timeInput = container.querySelector('input[data-time]');
+
+                        if (dateInput) dateInput.value = dateStr;
+                        if (timeInput) timeInput.value = timeStr;
                         };
-                        const textareas = document.querySelectorAll('textarea[readonly]');
-                            textareas.forEach(txt => {
-                            txt.style.height = "auto"; 
+
+                        const autoResizeReadonly = (container) => {
+                        container.querySelectorAll('textarea.js-autosize').forEach(t => {
+                            t.style.height = 'auto';
+                            t.style.overflow = 'hidden';
+                            t.style.height = t.scrollHeight + 'px';
                         });
+                        };
+
+                        const open = () => {
+                        modal.classList.add('is-open');
+                        modal.setAttribute('aria-hidden', 'false');
+                        document.body.style.overflow = 'hidden';
+                        setNow(modal);
+                        autoResizeReadonly(modal);
+                        };
+
                         const close = () => {
-                            modal.classList.remove('is-open');
-                            modal.setAttribute('aria-hidden', 'true');
-                            document.body.style.overflow = '';
+                        modal.classList.remove('is-open');
+                        modal.setAttribute('aria-hidden', 'true');
+                        document.body.style.overflow = '';
                         };
 
                         openBtn.addEventListener('click', open);
                         overlay.addEventListener('click', close);
                         closeX.addEventListener('click', close);
                         if (cancel) cancel.addEventListener('click', close);
-                        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
-                        }
+                        document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+                    }
 
-                        // Kích hoạt 2 modal
-                        wireModal('approveBtn','approveModal');
-                        wireModal('rejectBtn','rejectModal');
+                    // Kích hoạt 2 modal đúng id
+                    wireModal('approveBtn','approveModal');
+                    wireModal('rejectBtn','rejectModal');
                     });
-        </script>
+                </script>
     </body>
 </html>
