@@ -205,21 +205,21 @@
                         </tbody>
                     </table>
                 </div>
-                <div>
-                    <button class="btn" href="#dkModal">Đăng Kí</button>
-                    <!-- MODAL --
-                    <div id="dkModal" class="modal">
-                        <!-- Nền tối -->
-                        <a class="modal__overlay" href="#"></a>
+                
+                    <div class="actions actions-left">
+                        <button id="openRegBtn" class="btn">Đăng Ký</button>
+                    </div>
+                    <div id="idModal" class="modal" aria-hidden="true">
+                        <div class="modal__overlay" href="#"></div>
 
                         <div class="modal__card" role="dialog" aria-modal="true" aria-labelledby="title-dk">
                         <div class="modal__head">
-                            <h3 id="title-dk" class="modal__title">Đăng kí phòng họp</h3>
-                            <a class="modal__close" href="#" aria-label="Đóng">&times;</a>
+                            <h3 id="title-dk" class="modal__title">Đăng ký phòng họp</h3>
+                            <button type="button" class="modal__close" aria-label="Đóng">&times;</button>
                         </div>
 
                         <form action="#" method="post">
-                            <div class="grid">
+                            <div class="form-grid">
                             <label class="field">
                                 <span>Họ và Tên <b>*</b></span>
                                 <input name="hoten" type="text" placeholder="Nguyễn Văn A" required>
@@ -258,27 +258,67 @@
                                 <input name="ngay" type="date" required>
                             </label>
 
+                            <label class="field ">
+                                <span>Số Người Tham Gia</span>
+                                <input name="nguoithamgia" type="xx" required placeholder="Số người tham gia ..." ></input>
+                            </label>
+
                             <label class="field">
-                                <span>Giờ <b>*</b></span>
+                                <span>Từ  <b>*</b></span>
+                                <input name="gio" type="time" required>
+                            </label>
+                            <label class="field">
+                                <span>Đến <b>*</b></span>
                                 <input name="gio" type="time" required>
                             </label>
 
                             <label class="field col-2">
+                                <span>Nội Dung Cuộc Họp</span>
+                                <input name="noidung" rows="3" placeholder="Nội dung cuộc họp..."></input>
+                            </label>
+
+                            <label class="field col-2">
                                 <span>Ghi chú</span>
-                                <textarea name="ghichu" rows="3" placeholder="Thông tin thêm..."></textarea>
+                                <input name="ghichu" rows="3" placeholder="Ghi chú..."></textbox>
                             </label>
                             </div>
 
                             <div class="actions">
-                            <a class="btn gray" href="#">Hủy</a>
-                            <button class="btn" type="submit">Xác nhận</button>
+                                <button type="button" class="btn gray js-cancel">Hủy</button>
+                                <button class="btn" type="submit">Xác nhận</button>
                             </div>
                         </form>
-                        </div>
                     </div>
                 </div>
             </section>
         </main>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const openBtn  = document.getElementById('openRegBtn');
+            const modal    = document.getElementById('idModal');
+            const overlay  = modal.querySelector('.modal__overlay');
+            const closeX   = modal.querySelector('.modal__close');
+            const cancel   = modal.querySelector('.js-cancel');
+
+            function openModal() {
+            modal.classList.add('is-open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden'; // khoá scroll nền
+            }
+
+            function closeModal() {
+            modal.classList.remove('is-open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            }
+
+            openBtn.addEventListener('click', openModal);
+            overlay.addEventListener('click', closeModal);
+            closeX.addEventListener('click', closeModal);
+            cancel.addEventListener('click', closeModal);
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+        });
+    </script>
 </body>
 </html>
