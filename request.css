@@ -144,10 +144,6 @@ background:var(--sub);
   gap:16px;
   margin-bottom:20px;
 }
-.field{
-    min-width:220px; 
-    flex:1
-}
 .label{
   display:block; 
   font-size:13px; 
@@ -166,7 +162,12 @@ background:var(--sub);
   color:#555; 
   font-size:14px;
 }
-
+.filter-row{
+  display:grid; 
+  grid-template-columns:1fr 1fr 1fr 1fr; 
+  gap:16px; 
+  margin-bottom:20px;
+}
 /* ============ TABLE + TIMELINE ============ */
 table{
   width:100%; 
@@ -174,9 +175,9 @@ table{
   border-spacing:0;
 }
 thead th{
-  text-align:left; 
+  text-align:center; 
   padding:12px 14px; 
-  font-weight:700; 
+  font-size:14px; 
   background:#f7e2db; 
 }
 
@@ -310,32 +311,6 @@ button.btn:focus{
   gap:12px;
   align-items:start;
 }
-.field{ 
-  display:flex; 
-  flex-direction:column; 
-  gap:6px; 
-}
-.field span{ 
-  font-size:13px; 
-  color:#555; 
-}
-.field input,.field select,.field textarea{
-  width:100%; 
-  border:1px solid var(--border); 
-  border-radius:10px;
-  padding:10px 12px; 
-  font-size:14px; 
-  outline:none; 
-  background:#fff;
-}
-
-.field input:focus,.field select:focus,.field textarea:focus{
-  border-color:var(--focus); 
-  box-shadow:0 0 0 3px rgba(242,184,163,.25);
-}
-.col-2{ 
-  grid-column:span 2; 
-}
 
 .actions{ 
   display:flex; 
@@ -426,6 +401,25 @@ button.btn:focus{
 }
 .col-2{ 
   grid-column:span 2; 
+}
+th.status-col, td.status-col {
+  width: 160px;           /* set chiều rộng cố định */
+  text-align: center;     /* căn giữa chữ */
+  font-weight: 600;
+}
+
+td.status-col {
+  color: #444;
+}
+
+td.status-col.booked { 
+  color: #1e7a3e;        /* màu xanh cho "Đã đặt" */
+}
+td.status-col.pending { 
+  color: #946200;        /* màu vàng cho "Chờ phê duyệt" */
+}
+td.status-col.empty { 
+  color: #b43328;        /* màu đỏ cho "Phòng trống" */
 }
 
 /* ============ RESPONSIVE ============ */

@@ -10,7 +10,6 @@
   --brand:#e39b8b;
   --shadow:0 8px 24px rgba(0,0,0,.12);
   --radius:16px;
-
   --focus:#f2b8a3;
   --focus-700:#e89d84;
   --focus-800:#d8856a; 
@@ -110,8 +109,10 @@ background:var(--bg);
   user-select:none;
 }
 .side-item:hover{background:#e1b29e}
-.side-item svg{ width:18px; height:18px;
-box-shadow:0 6px px rgba(0,0,0,.06) inset;  }
+.side-item svg{ width:18px; 
+  height:18px;
+box-shadow:0 6px px rgba(0,0,0,.06) inset;  
+}
 
 .main{ 
   padding:22px 24px 100px; 
@@ -163,19 +164,17 @@ border-spacing:0;
 }
 thead th{ 
   background:#f7e2db; 
-  text-align:left; 
-  padding:10px 12px; 
+  text-align:center; 
+  padding:12px 14px; 
   font-size:14px; 
 }
 
-th,td{ 
-  border:1px solid var(--line); 
-}
+
 th:first-child, td:first-child{ 
   border-left:1px solid var(--line); 
 }
-th:last-child, td:last-child{ 
-  border-right:1px solid var(--line); 
+th.room, td.room{
+  width:250px
 }
 thead th:first-child{ 
   border-top-left-radius:12px; 
@@ -183,9 +182,9 @@ thead th:first-child{
 thead th:last-child{ 
   border-top-right-radius:12px; 
 }
-tbody td{ 
-  padding:14px 12px; 
-  background:#fff; 
+tbody td{
+  padding:14px; 
+  border-bottom:1px solid var(--line); 
 }
 tbody tr:last-child td:first-child{ 
   border-bottom-left-radius:12px; 
@@ -214,7 +213,7 @@ tbody tr:last-child td:last-child{
   left:var(--left,0%); 
   width:var(--width,0%);
   text-align:center; 
-  padding:0 6px; 
+  padding: 0 6px;
   white-space:nowrap; 
   overflow:hidden; 
   text-overflow:ellipsis;
@@ -224,7 +223,7 @@ tbody tr:last-child td:last-child{
   color:#333;
 }
 .slot.dark{ 
-  background:#c9c5c2; 
+  background:#dfdbd8; 
 }
 /* ví dụ vị trí theo phần trăm (7h-17h ~ 100%) */
 .s-7-930{ 
@@ -260,7 +259,10 @@ tbody tr:last-child td:last-child{
   color:#452b2b;
   transition:background .25s, transform .15s, box-shadow .2s;
 }
-
+.btn.danger {
+  background: var(--focus);
+}
+.btn.danger:hover { background:#e57373; }
 button.btn{ 
   -webkit-appearance:none; 
   appearance:none; 
@@ -319,6 +321,7 @@ button.btn:focus{
   z-index:1;
   width:min(640px, 92vw);
   background:#fff; 
+  margin:80px auto;
   border:1px solid var(--border);
   border-radius:14px; 
   box-shadow:0 10px 30px rgba(0,0,0,.12);
@@ -360,6 +363,7 @@ button.btn:focus{
   flex-direction:column; 
   gap:6px; 
 }
+
 .field span{ 
   font-size:13px; 
   color:#555; 

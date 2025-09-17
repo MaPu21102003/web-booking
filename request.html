@@ -7,7 +7,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-        <title>Request</title>
+        <title>Request – TBS Logistics</title>
     </head>
     <body>
         <header class="topbar">
@@ -116,12 +116,12 @@
                     <div style="overflow: auto; border-radius: 12px; border: 1px solid var(--line)">
                         <table>
                             <thead>
-                                <tr>
-                                    <th class="room">Phòng Họp</th>
-                                    <th>Thời Gian</th>
-                                    <th class="status">Trạng Thái</th>
-                                    <th Style="width:8%"></th>
-                                </tr>
+                            <tr>
+                                <th class="room">Phòng Họp</th>
+                                <th class="time-col">Thời Gian</th>
+                                <th class="status-col">Trạng Thái</th>
+                                <th></th>
+                            </tr>
                             </thead>
                             <tbody>
                                 <tr>
@@ -242,8 +242,15 @@ Nội dung: Họp dự án A </textarea>                                        
 
                             <!-- Phòng ban người phê duyệt -->
                             <label class="field">
-                            <span>Phòng ban</span>
-                            <input name="pb_pheduyet" placeholder="Phòng ban...">
+                                <span>Phòng Ban</span>
+                                <select name="phongban">
+                                <option value="">-- Chọn phòng ban --</option>
+                                <option>Kế Toán</option>
+                                <option>Nhân Sự</option>
+                                <option>Kinh Doanh</option>
+                                <option>Kho Vận</option>
+                                <option>IT</option>
+                                </select>
                             </label>
 
                             <!-- Thời gian phê duyệt (auto now) -->
@@ -293,8 +300,15 @@ Nội dung: Họp dự án A </textarea>
                             </label>
 
                             <label class="field">
-                            <span>Phòng ban</span>
-                            <input name="pb_pheduyet" placeholder="Phòng ban...">
+                                <span>Phòng Ban</span>
+                                <select name="phongban">
+                                <option value="">-- Chọn phòng ban --</option>
+                                <option>Kế Toán</option>
+                                <option>Nhân Sự</option>
+                                <option>Kinh Doanh</option>
+                                <option>Kho Vận</option>
+                                <option>IT</option>
+                                </select>
                             </label>
 
                             <label class="field">

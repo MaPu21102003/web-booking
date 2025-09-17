@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Quản Lí Người Dùng – TBS Logistics</title>
-  <link rel="stylesheet" href="User.css" />
+  <title>Quản Lí Phòng Họp – TBS Logistics</title>
+  <link rel="stylesheet" href="Room.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -72,7 +72,7 @@
     <!-- MAIN -->
     <main class="main">
       <section class="card page">
-        <h2 class="title">Quản Lí Người Dùng</h2>
+        <h2 class="title">Quản Lí Phòng Họp</h2>
 
         <!-- TOOLBAR -->
         <div class="toolbar">
@@ -82,31 +82,39 @@
             </svg>
             <input type="text" placeholder="Tìm kiếm..." />
           </div>
+          <div class="field">
+                <label class="label">Giờ</label>
+                <input class="input" type="time"/>
+                        <circle cx="12" cy="12" r="9"/>
+                        <path d="M12 7v513 3"/>
+          </div>
 
           <div class="filters">
             <select>
-              <option value="">Phòng Ban</option>
-              <option>Kho Vận</option>
-              <option>Kế Toán</option>
-              <option>IT</option>
-              <option>Nhân Sự</option>
+              <option value="">Vị Trí</option>
+              <option>Kho ICD30</option>
+              <option>Kho 3 </option>
+              <option>Kho 5</option>
+              <option>Kho 6</option>
+              <option>Kho 7</option>
+              <option>Kho 8</option>
             </select>
             <select>
-              <option value="">Vai Trò</option>
-              <option>Nhân viên</option>
-              <option>Quản lý</option>
-              <option>Quản trị hệ thống</option>
+              <option value="">Sức Chứa</option>
+              <option>10 người</option>
+              <option>15 người</option>
+              <option>20 người</option>
             </select>
             <select>
               <option value="">Trạng Thái</option>
-              <option>Hoạt động</option>
-              <option>Khoá</option>
-              <option>Chờ kích hoạt</option>
+              <option>Đã Đăng kích</option>
+              <option>Chờ Phê Duyệt</option>
+              <option>Trống</option>
             </select>
           </div>
 
           <div class="actions actions-left">
-            <button id="openRegBtn" class="btn">Thêm Người Dùng</button>
+            <button id="openRegBtn" class="btn">Thêm Phòng Họp</button>
           </div>
         </div>
 
@@ -115,20 +123,18 @@
           <table>
             <thead>
               <tr>
-                <th>Họ Tên</th>
-                <th>Email</th>
-                <th>Phòng Ban</th>
-                <th>Vai Trò</th>
+                <th>ID Phòng</th>
+                <th>Vị Trí</th>
+                <th>Sức Chứa</th>
                 <th>Trạng Thái</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Nguyễn Văn A</td>
-                <td>a.nguyen@tbs.com</td>
-                <td>IT</td>
-                <td>Quản lý</td>
+                <td>Kho ICD30</td>
+                <td>Kho ICD30</td>
+                <td>1000 người </td>
                 <td><span class="badge ok">Hoạt động</span></td>
                 <td class="actions">
                   <button class="btn ghost">Sửa</button>
@@ -136,14 +142,23 @@
                 </td>
               </tr>
               <tr>
-                <td>Trần Thị B</td>
-                <td>b.tran@tbs.com</td>
-                <td>Kho Vận</td>
-                <td>Nhân viên</td>
-                <td><span class="badge warn">Chờ kích hoạt</span></td>
+                <td>Kho 3</td>
+                <td>Kho 3</td>
+                <td>40 người</td>
+                <td><span class="badge block">Đóng</span></td>
                 <td class="actions">
                   <button class="btn ghost">Sửa</button>
-                  <button class="btn">Kích hoạt</button>
+                  <button class="btn ghost danger">Khoá</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Kho 3</td>
+                <td>Kho 3</td>
+                <td>100 người</td>
+                <td><span class="badge warn">Tạm Dừng</span></td>
+                <td class="actions">
+                  <button class="btn ghost">Sửa</button>
+                  <button class="btn ghost danger">Khoá</button>
                 </td>
               </tr>
             </tbody>
@@ -159,73 +174,53 @@
 
     <div class="modal__card" role="dialog" aria-modal="true" aria-labelledby="title-dk">
       <div class="modal__head">
-        <h3 id="title-dk" class="modal__title">Thêm Người Dùng</h3>
+        <h3 id="title-dk" class="modal__title">Thêm Phòng Họp</h3>
         <button type="button" class="modal__close" aria-label="Đóng">&times;</button>
       </div>
 
       <form action="#" method="post">
         <div class="form-grid">
           <label class="field">
-            <span>Họ và Tên <b>*</b></span>
-            <input name="hoten" type="text" placeholder="Nguyễn Văn A" required>
+            <span>ID Phòng <b>*</b></span>
+            <input name="hoten" type="text" placeholder="Vd: Phòng 102..." required>
           </label>
 
           <label class="field">
-            <span>Chức Vụ</span>
-            <select name="chucvu">
-              <option value="">-- Chọn chức vụ --</option>
-              <option>Nhân viên</option>
-              <option>Trưởng nhóm</option>
-              <option>Trưởng phòng</option>
-              <option>Giám đốc</option>
+            <span>Vị Trí</span>
+            <select name="vitri">
+              <option value="">-- Chọn vị trí --</option>
+              <option>Kho ICD30</option>
+              <option>Kho 3</option>
+              <option>Kho 5</option>
+              <option>Kho 6</option>
+              <option>Kho 7</option>
+              <option>Kho 8</option>
             </select>
           </label>
 
           <label class="field">
-            <span>Phòng Ban</span>
-            <select name="phongban">
-              <option value="">-- Chọn phòng ban --</option>
-              <option>Kế Toán</option>
-              <option>Nhân Sự</option>
-              <option>Kinh Doanh</option>
-              <option>Kho Vận</option>
-              <option>IT</option>
+            <span>Sức chứa <b>*</b></span>
+            <input name="succhua" type="" placeholder="Sức chứa..." required>
+          </label>
+
+          <label class="field">
+            <span>Ngày nhập</span>
+            <input name="ngaynhap" type="date" required>
+          </label>
+
+          <label class="field">
+            <span>Trạng Thái</span>
+            <select name="vitri">
+              <option value="">-- Chọn trạng thái --</option>
+              <option>Hoạt Động</option>
+              <option>Tạm Dừng</option>
+              <option>Đóng</option>
             </select>
           </label>
 
           <label class="field">
-            <span>Số Điện Thoại <b>*</b></span>
-            <input name="sdt" type="tel" placeholder="09xxxxxxxx" required>
-          </label>
-
-          <label class="field">
-            <span>Ngày</span>
-            <input name="ngay" type="date" required>
-          </label>
-
-          <label class="field">
-            <span>Số Người Tham Gia</span>
-            <input name="nguoithamgia" type="number" placeholder="Số người tham gia...">
-          </label>
-
-          <label class="field">
-            <span>Từ <b>*</b></span>
-            <input name="tugio" type="time" required>
-          </label>
-
-          <label class="field">
-            <span>Đến <b>*</b></span>
-            <input name="dengio" type="time" required>
-          </label>
-
-          <label class="field">
-            <span>Nội dung cuộc họp</span>
-            <div class="editable" contenteditable="true" data-placeholder="Nhập nội dung tại đây..."></div>
-          </label>
-
-          <label class="field">
-            <span>Ghi chú</span>
-            <div class="editable" contenteditable="true" data-placeholder="Nhập ghi chú..."></div>
+                <span>Ghi chú</span>
+                <div class="editable" contenteditable="true" data-placeholder="Ghi chú..."></div>
           </label>
         </div>
 
@@ -237,7 +232,7 @@
     </div>
   </div>
 
-  <!-- SCRIPT -->
+  <!-- SCRIPT --> 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const openBtn = document.getElementById('openRegBtn');
@@ -248,6 +243,18 @@
       const btnX    = modal.querySelector('.modal__close');
       const btnCancel = modal.querySelector('.js-cancel');
 
+      const setNow = (container) => {
+      const now = new Date();
+
+        // Lấy ngày theo định dạng Việt Nam
+        const dateStr = now.toLocaleDateString('vi-VN'); // ví dụ: 15/9/2025
+
+        // Gán vào ô tương ứng trong modal
+        const dateInput = container.querySelector('input[data-date]');
+
+        if (dateInput) dateInput.value = dateStr;
+        };
+        
       const open = () => {
         modal.classList.add('is-open');
         modal.setAttribute('aria-hidden', 'false');
