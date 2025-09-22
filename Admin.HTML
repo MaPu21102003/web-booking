@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - TBS Logistics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="Admin.CSS" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand">
+            <img src="./Assets/Logo.png" alt="TBS Logo" class="logo">
+        </div>
+        <nav class="topnav">
+            <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="18" height="18" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    stroke-width="2" 
+                    stroke-linecap="round" 
+                    stroke-linejoin="round">
+                    <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V9.5z"/>
+                </svg>
+                Trang Chủ
+            </a>
+            <div class="notif">
+                <div class="notif-panel" id="notifPanel" role="menu" aria-hidden="true">
+                    <div class="notif-head">
+                        <strong>Thông báo</strong>
+                    </div>
+                    <ul class="notif-list">
+                        <li class="notif-item unread ">
+                            <span class="badge warning">⚠ Cảnh báo</span>
+                            <div class="title">Yêu cầu của bạn đang trùng lịch</div>
+                                <div class="ni-meta">17:05 • Hôm nay</div>
+                        </li>
+                        <div class="notif-item admin">
+                            <div class="title">Lỗi hệ thống</div>
+                            <div class="msg">Không gửi được email thông báo lúc 10:20 sáng.</div>
+                        </div>
+                        <li class="notif-item unread">
+                            <div class="ni-title">Cuộc họp 15:00 dời sang 15:30</div>
+                            <div class="ni-meta">Kho 7 • 09:12 • Hôm nay </div>
+                        </li>
+                        <li class="notif-item">
+                            <div class="ni-title">Bạn được thêm vào phòng họp Kho 5</div>
+                            <div class="ni-meta">17:05 • Hôm qua</div>
+                        </li>
+                        <li class="notif-item">
+                            <div class="ni-title">Cuộc họp đã được Hủy</div>
+                            <div class="ni-meta">17:05 • Hôm qua</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <button>Đăng Xuất</button>
+    </header>
+    <div class="layout">
+            <aside class="sidenav">
+                <div class="side-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="8" r="4"/>
+                        <path d="M4 20a8 8 0 0116 0"/>
+                    </svg>
+                    <span>Người Dùng</span>
+                </div>
+
+                <div class="side-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="14" rx="2"/>
+                        <path d="M7 8h10M7 12h6"/>
+                    </svg>
+                    <span>Phòng Họp</span>
+                </div>
+
+                <div class="side-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 3h18v14H3z"/>
+                        <path d="M8 21h8"/>
+                    </svg>
+                    <span>Báo Cáo</span>
+                </div>
+                <div class="side-item">
+                    <svg viewBox="0 0 24 24"
+                </div>
+            </aside>
+    </div>
+</body>
+</html>

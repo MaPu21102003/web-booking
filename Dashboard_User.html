@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>TBS – Đăng ký phòng họp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="Dashboard-User.css" rel="stylesheet">
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand">
+            <img src="./Assets/Logo.png" alt="TBS Logo" class="logo">
+        </div>
+        <nav class="topnav">
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" 
+                        width="18" height="18" 
+                        viewBox="0 0 24 24" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        stroke-width="2" 
+                        stroke-linecap="round" 
+                        stroke-linejoin="round">
+                        <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V9.5z"/>
+                    </svg>
+                    Trang Chủ
+                </a>
+                <div class="notif">
+                    <button id="notifBtn" class="notif-btn" aria-expanded="false">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"/>
+                            <circle cx="12" cy="19" r="1"/>
+                        </svg>
+                        Thông Báo
+                    </button>
+
+                    <!-- Panel thông báo -->
+                    <div id="notifPanel" class="notif-panel" aria-hidden="true">
+                        <div class="notif-list">
+                            <div class="notif-item unread approver">
+                                <div class="title">Yêu cầu mới: Phòng ICD30</div>
+                                <div class="msg">Nguyễn Văn A (IT) đặt phòng 08:00 – 10:00 25/09</div>
+                                <div class="actions">
+                                    <button class="btn small">Duyệt</button>
+                                    <button class="btn small gray">Từ chối</button>
+                                </div>
+                            </div>
+                            <div class="notif-item unread approver">
+                                <div class="title">Yêu cầu mới: Phòng ICD30</div>
+                                <div class="msg">Trần Thị B (Nhân Sự) đặt phòng 07:30 – 11:00 25/09</div>
+                                <div class="actions">
+                                    <button class="btn small">Duyệt</button>
+                                    <button class="btn small gray">Từ chối</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="index.html">Đăng Xuất</a>
+        </nav>
+    </header>
+    <main class="main">
+            <section class="card" style="padding: 18px 18px 10px">
+                <div class="filter-row">
+                    <div class="field">
+                        <label class="label">Khu Vực</label>
+                        <select class="select">
+                            <option value="">Chọn Phòng Họp</option>
+                            <option>Phòng ICD 30</option>
+                            <option>Phòng Kho 3</option>
+                            <option>Phòng Kho 5</option>
+                            <option>Phòng Kho 6 /01</option>
+                            <option>Phòng Kho 6 /02</option>
+                            <option>Phòng Kho 6 /03</option>
+                            <option>Phòng Kho 7</option>
+                            <option>Phòng Kho 8</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Từ Ngày:</label>
+                        <input class="input" type="date"/>
+                            <rect x="3" y="4" width="18" height="18" rx="2"/>
+                            <path d="M8 2v4M16 2v4M3 10h18"/>
+                        </svg>
+                    </div>
+                    <div class="field">
+                        <label class="label">Đến Ngày:</label>
+                        <input class="input" type="date"/>
+                            <rect x="3" y="4" width="18" height="18" rx="2"/>
+                            <path d="M8 2v4M16 2v4M3 10h18"/>
+                        </svg>
+                    </div>
+                    <div class="field">
+                        <label class="label">Giờ</label>
+                        <input class="input" type="time"/>
+                            <circle cx="12" cy="12" r="9"/>
+                            <path d="M12 7v513 3"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div style="overflow: auto; border-radius: 12px; border: 1px solid var(--line)">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="room">Phòng Họp</th>
+                                <th>Thời Gian</th>
+                                <th Style="width:60px"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="room">Phòng ICD 30</td>
+                                <td>
+                                    <div class="timeline">
+                                        <div class="slot dark s-7-930">7:00 - 9:30</div>
+                                    </div>
+                                </td>
+                                <td style="text-align:center"><input type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td class="room">Phòng Kho 3</td>
+                                <td>
+                                    <div class="timeline">
+                                        <div class="slot dark s-7-930">7:00 - 9:30</div>
+                                        <div class="slot s-10-1130">10:00 - 11:30</div>
+                                    </div>
+                                </td>
+                                <td style="text-align:center"><input type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td class="room">Phòng Kho 5</td>
+                                <td>
+                                    <div class="timeline">
+                                        <div class="slot dark s-7-930">7:00 - 9:30</div>
+                                        <div class="slot s-15-17">15:00 - 17:00</div>
+                                    </div>
+                                </td>
+                                <td style="text-align:center"><input type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td class="room">Phòng Kho 6 /01</td>
+                                <td>
+                                    <div class="timeline">
+                                        <div class="slot dark s-7-930">7:00 - 9:30</div>
+                                        <div class="slot dark s-10-1130">10:00 - 11:30</div>
+                                    </div>
+                                </td>
+                                <td style="text-align:center"><input type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td class="room">Phòng Kho 6 /02</td>
+                                <td>
+                                    <div class="timeline">
+                                        <div class="slot dark s-7-930">7:00 - 9:30</div>
+                                        <div class="slot dark s-10-1130">10:00 - 11:30</div>
+                                    </div>
+                                </td>
+                                <td style="text-align:center"><input type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td class="room">Phòng Kho 6 /03</td>
+                                <td>
+                                    <div class="timeline">
+                                        <div class="slot dark s-7-930">7:00 - 9:30</div>
+                                        <div class="slot dark s-10-1130">10:00 - 11:30</div>
+                                    </div>
+                                </td>
+                                <td style="text-align:center"><input type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td class="room">Phòng Kho 7</td>
+                                <td>
+                                    <div class="timeline">
+                                        <div class="slot dark s-7-930">7:00 - 9:30</div>
+                                        <div class="slot dark s-15-17">15:00 - 17:00</div>
+                                    </div>
+                                </td>
+                                <td style="text-align:center"><input type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td class="room">Phòng Kho 8</td>
+                                <td>
+                                    <div class="timeline">
+                                        <div class="slot dark s-13-15">13:00 - 15:00</div>
+                                    </div>
+                                </td>
+                                <td style="text-align:center"><input type="checkbox"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="actions">
+                    <button id="openRegBtn" class="btn">Đăng Ký</button>
+                </div>
+                <div id="idModal" class="modal" aria-hidden="true">
+                    <div class="modal__overlay" href="Dashboard_User.html"></div>
+                    <div class="modal__card" role="dialog" aria-modal="true" aria-labelledby="title-dk">
+                        <div class="modal__head">
+                            <h3 id="title-dk" class="modal__title">Đăng ký phòng họp</h3>
+                            <button type="button" class="modal__close" aria-label="Đóng">&times;</button>
+                        </div>
+
+                        <form action="#" method="post">
+                            <div class="form-grid">
+                                <label class="field">
+                                    <span>Họ và Tên <b>*</b></span>
+                                    <input name="hoten" type="text" placeholder="Nguyễn Văn A" required>
+                                </label>
+
+                                <label class="field">
+                                    <span>Chức Vụ</span>
+                                    <select name="chucvu">
+                                    <option value="">-- Chọn chức vụ --</option>
+                                    <option>Nhân viên</option>
+                                    <option>Trưởng nhóm</option>
+                                    <option>Trưởng phòng</option>
+                                    <option>Giám đốc</option>
+                                    </select>
+                                </label>
+
+                                <label class="field">
+                                    <span>Phòng Ban</span>
+                                    <select name="phongban">
+                                    <option value="">-- Chọn phòng ban --</option>
+                                    <option>Kế Toán</option>
+                                    <option>Nhân Sự</option>
+                                    <option>Kinh Doanh</option>
+                                    <option>Kho Vận</option>
+                                    <option>IT</option>
+                                    </select>
+                                </label>
+
+                                <label class="field">
+                                    <span>Số Điện Thoại <b>*</b></span>
+                                    <input name="sdt" type="tel" placeholder="09xxxxxxxx" required>
+                                </label>
+
+                                <label class="field">
+                                    <span>Ngày <b>*</b></span>
+                                    <input name="ngay" type="date" required>
+                                </label>
+
+                                <label class="field ">
+                                    <span>Số Người Tham Gia</span>
+                                    <input name="nguoithamgia" type="xx" required placeholder="Số người tham gia ..." ></input>
+                                </label>
+
+                                <label class="field">
+                                    <span>Từ  <b>*</b></span>
+                                    <input name="gio" type="time" required>
+                                </label>
+                                <label class="field">
+                                    <span>Đến <b>*</b></span>
+                                    <input name="gio" type="time" required>
+                                </label>
+
+                                <label class="field col-2">
+                                    <span>Nội Dung Cuộc Họp</span>
+                                    <input name="noidung" rows="3" placeholder="Nội dung cuộc họp..."></input>
+                                </label>
+
+                                <label class="field col-2">
+                                    <span>Ghi chú</span>
+                                    <input name="ghichu" rows="3" placeholder="Ghi chú..."></textbox>
+                                </label>
+                            </div>
+
+                            <div class="actions">
+                                <button type="button" class="btn gray js-cancel">Hủy</button>
+                                <button class="btn" type="submit">Xác nhận</button>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </section>
+    </main>
+    <script>
+            (() => {
+            const on = (el, evt, fn) => el && el.addEventListener(evt, fn);
+            const qs  = (root, sel) => root?.querySelector(sel);
+            const qsa = (root, sel) => root ? Array.from(root.querySelectorAll(sel)) : [];
+
+            function wireModal(openBtnId, modalId) {
+                const openBtn = document.getElementById(openBtnId);
+                const modal   = document.getElementById(modalId);
+                if (!openBtn || !modal) return;
+
+                const overlay = qs(modal, '.modal__overlay');
+                const closeX  = qs(modal, '.modal__close');
+                const cancel  = qs(modal, '.js-cancel');
+
+                const setNow = () => {
+                const now  = new Date();
+                const date = now.toLocaleDateString('vi-VN');
+                const time = now.toLocaleTimeString('vi-VN', { hour12: false });
+                const dateInput = qs(modal, 'input[data-date]');
+                const timeInput = qs(modal, 'input[data-time]');
+                if (dateInput) dateInput.value = date;
+                if (timeInput) timeInput.value = time;
+                };
+
+                const autosizeReadonly = () => {
+                qsa(modal, 'textarea.js-autosize').forEach(t => {
+                    t.style.height = 'auto';
+                    t.style.overflow = 'hidden';
+                    t.style.height = t.scrollHeight + 'px';
+                });
+                };
+
+                const open = () => {
+                modal.classList.add('is-open');
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                setNow();
+                autosizeReadonly();
+                };
+
+                const close = () => {
+                modal.classList.remove('is-open');
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                };
+
+                on(openBtn, 'click', open);
+                on(overlay, 'click', close);
+                on(closeX, 'click', close);
+                on(cancel, 'click', close);
+                on(document, 'keydown', e => { if (e.key === 'Escape') close(); });
+            };
+
+            // Các modal khác
+            wireModal('approveBtn', 'approveModal');
+            wireModal('rejectBtn', 'rejectModal');
+            // 👉 Thêm dòng này cho nút Đăng Ký
+            wireModal('openRegBtn', 'idModal');
+
+            // Notification dropdown
+            const btn   = document.getElementById('notifBtn');
+            const panel = document.getElementById('notifPanel');
+            if (btn && panel) {
+                const mark  = qs(panel, '.mark-read');
+
+                const open  = () => {
+                panel.classList.add('is-open');
+                btn.setAttribute('aria-expanded', 'true');
+                panel.setAttribute('aria-hidden', 'false');
+                };
+                const close = () => {
+                panel.classList.remove('is-open');
+                btn.setAttribute('aria-expanded', 'false');
+                panel.setAttribute('aria-hidden', 'true');
+                };
+                const toggle = e => {
+                e.stopPropagation();
+                panel.classList.contains('is-open') ? close() : open();
+                };
+
+                on(btn, 'click', toggle);
+                on(document, 'click', e => {
+                if (!panel.contains(e.target) && !btn.contains(e.target)) close();
+                });
+                on(document, 'keydown', e => { if (e.key === 'Escape') close(); });
+            }
+            })();
+    </script>
+</body>
+</html>
