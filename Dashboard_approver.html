@@ -1,141 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - TBS Logistics</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>TBS – Đăng ký phòng họp</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="Admin.CSS" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <link href="Dashboard-User.css" rel="stylesheet">
 </head>
 <body>
     <header class="topbar">
         <div class="brand">
-            <img src="./Assets/Logo.png" alt="TBS Logistics" class="logo" />
+            <img src="./Assets/Logo.png" alt="TBS Logo" class="logo">
         </div>
         <nav class="topnav">
-            <a href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" 
-                    width="18" height="18" 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    stroke-width="2" 
-                    stroke-linecap="round" 
-                    stroke-linejoin="round">
-                    <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V9.5z"/>
-                </svg>
-                Trang Chủ
-            </a>
-            <div class="notif">
-                <button id="notifBtn" class="notif-btn" aria-expanded="false">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"/>
-                        <circle cx="12" cy="19" r="1"/>
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" 
+                        width="18" height="18" 
+                        viewBox="0 0 24 24" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        stroke-width="2" 
+                        stroke-linecap="round" 
+                        stroke-linejoin="round">
+                        <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V9.5z"/>
                     </svg>
-                    Thông Báo
-                </button>
+                    Trang Chủ
+                </a>
+                <div class="notif">
+                    <button id="notifBtn" class="notif-btn" aria-expanded="false">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"/>
+                            <circle cx="12" cy="19" r="1"/>
+                        </svg>
+                        Thông Báo
+                    </button>
 
-                <!-- Panel thông báo -->
-                <div id="notifPanel" class="notif-panel" aria-hidden="true">
-                    <div class="notif-list">
-                        <div class="notif-item unread approver">
-                            <div class="title">Yêu cầu mới: Phòng ICD30</div>
-                            <div class="msg">Nguyễn Văn A (IT) đặt phòng 08:00 – 10:00 25/09</div>
-                            <div class="actions">
-                                <button class="btn small">Duyệt</button>
-                                <button class="btn small gray">Từ chối</button>
+                    <!-- Panel thông báo -->
+                    <div id="notifPanel" class="notif-panel" aria-hidden="true">
+                        <div class="notif-list">
+                            <div class="notif-item unread approver">
+                                <div class="title">Yêu cầu mới: Phòng ICD30</div>
+                                <div class="msg">Nguyễn Văn A (IT) đặt phòng 08:00 – 10:00 25/09</div>
+                                <div class="actions">
+                                    <button class="btn small">Duyệt</button>
+                                    <button class="btn small gray">Từ chối</button>
+                                </div>
                             </div>
-                        </div>
-                        <div class="notif-item unread approver">
-                            <div class="title">Yêu cầu mới: Phòng ICD30</div>
-                            <div class="msg">Trần Thị B (Nhân Sự) đặt phòng 07:30 – 11:00 25/09</div>
-                            <div class="actions">
-                                <button class="btn small">Duyệt</button>
-                                <button class="btn small gray">Từ chối</button>
+                            <div class="notif-item unread approver">
+                                <div class="title">Yêu cầu mới: Phòng ICD30</div>
+                                <div class="msg">Trần Thị B (Nhân Sự) đặt phòng 07:30 – 11:00 25/09</div>
+                                <div class="actions">
+                                    <button class="btn small">Duyệt</button>
+                                    <button class="btn small gray">Từ chối</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <a href="index.html">Đăng Xuất</a>
+                <a href="index.html">Đăng Xuất</a>
         </nav>
     </header>
+    <div class ="layout">
+            <aside class="sidenav">
+                <a href="Dashboard_approver.html">
+                <div class="side-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="14" rx="2"/>
+                        <path d="M7 8h10M7 12h6"/>
+                    </svg>
+                    <span>Đăng Kí</span>
+                </div>
+                </a>
 
-    <!-- LAYOUT -->
-    <div class="layout">
-        <aside class="sidenav">
-            <div class="side-item">
-                <svg xmlns="http://www.w3.org/2000/svg" 
-                    width="18" height="18" 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    stroke-width="2" 
-                    stroke-linecap="round" 
-                    stroke-linejoin="round">
-                    <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V9.5z"/>
-                </svg>
-                <span>Phòng Họp</span>
-            </div>
+                <a href="request-approver.html">
+                <div class="side-item">
+                    <svg <svg xmlns="http://www.w3.org/2000/svg" 
+                        width="20" height="20" 
+                        viewBox="0 0 24 24" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        stroke-width="2" 
+                        stroke-linecap="round" 
+                        stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <path d="M9 15l2 2 4-4"/>
+                    </svg>
+                    <span>Duyệt</span>
+                </div>
+                </a>
 
-            <div class="side-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="8" r="4"/>
-                    <path d="M4 20a8 8 0 0116 0"/>
-                </svg>
-                <span>Người Dùng</span>
-            </div>
-
-            <div class="side-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="3" y="4" width="18" height="14" rx="2"/>
-                    <path d="M7 8h10M7 12h6"/>
-                </svg>
-                <span>Đăng Kí</span>
-            </div>
-
-            <div class="side-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M3 3h18v14H3z"/>
-                    <path d="M8 21h8"/>
-                </svg>
-                <span>Báo Cáo</span>
-            </div>
-        </aside>
-        <main class="main">
-            <section class="card" style="padding: 18px 18px 10px">
-                <div class="filter-row">
-                    <div class="field">
-                        <label class="label">Khu Vực</label>
-                        <select class="select">
-                            <option value="">Chọn Phòng Họp</option>
-                            <option>Phòng ICD 30</option>
-                            <option>Phòng Kho 3</option>
-                            <option>Phòng Kho 5</option>
-                            <option>Phòng Kho 6 /01</option>
-                            <option>Phòng Kho 6 /02</option>
-                            <option>Phòng Kho 6 /03</option>
-                            <option>Phòng Kho 7</option>
-                            <option>Phòng Kho 8</option>
-                        </select>
-                    </div>
-
-                    <div class="field">
-                        <label class="label">Từ Ngày:</label>
-                        <input class="input" type="date"/>
-                            <rect x="3" y="4" width="18" height="18" rx="2"/>
-                            <path d="M8 2v4M16 2v4M3 10h18"/>
+                <a href="Report_approver.html">
+                    <div class="side-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 3h18v14H3z"/>
+                            <path d="M8 21h8"/>
                         </svg>
+                        <span>Báo Cáo</span>
                     </div>
-                    <div class="field">
-                        <label class="label">Đến Ngày:</label>
-                        <input class="input" type="date"/>
-                            <rect x="3" y="4" width="18" height="18" rx="2"/>
-                            <path d="M8 2v4M16 2v4M3 10h18"/>
+                </a>
+            </aside>
+            <main class="main">
+                <section class="card" style="padding: 18px 18px 10px">
+                    <div class="filter-row">
+                        <div class="field">
+                            <label class="label">Khu Vực</label>
+                            <select class="select">
+                                <option value="">Chọn Phòng Họp</option>
+                                <option>Phòng ICD 30</option>
+                                <option>Phòng Kho 3</option>
+                                <option>Phòng Kho 5</option>
+                                <option>Phòng Kho 6 /01</option>
+                                <option>Phòng Kho 6 /02</option>
+                                <option>Phòng Kho 6 /03</option>
+                                <option>Phòng Kho 7</option>
+                                <option>Phòng Kho 8</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Từ Ngày:</label>
+                            <input class="input" type="date"/>
+                                <rect x="3" y="4" width="18" height="18" rx="2"/>
+                                <path d="M8 2v4M16 2v4M3 10h18"/>
+                            </svg>
+                        </div>
+                        <div class="field">
+                            <label class="label">Đến Ngày:</label>
+                            <input class="input" type="date"/>
+                                <rect x="3" y="4" width="18" height="18" rx="2"/>
+                                <path d="M8 2v4M16 2v4M3 10h18"/>
                             </svg>
                         </div>
                         <div class="field">
@@ -318,43 +315,102 @@
                                 <div class="actions">
                                     <button type="button" class="btn gray js-cancel">Hủy</button>
                                     <button class="btn" type="submit">Xác nhận</button>
-                                </div>   
+                                </div>
+                                
                             </form>
                         </div>
                     </div>
-                </div>
-            </section>
-        </main>
-    </div>
+                </section>
+            </main>
+        </div>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-        const on  = (el, evt, fn) => el && el.addEventListener(evt, fn);
-        const qs  = (root, sel)   => root ? root.querySelector(sel) : null;
-        // ===== Notification dropdown =====
-        const notifBtn   = document.getElementById('notifBtn');
-        const notifPanel = document.getElementById('notifPanel');
+            (() => {
+            const on = (el, evt, fn) => el && el.addEventListener(evt, fn);
+            const qs  = (root, sel) => root?.querySelector(sel);
+            const qsa = (root, sel) => root ? Array.from(root.querySelectorAll(sel)) : [];
 
-        const openNotif = () => {
-            notifPanel.classList.add('is-open');
-            notifBtn.setAttribute('aria-expanded', 'true');
-            notifPanel.setAttribute('aria-hidden', 'false');
-        };
-        const closeNotif = () => {
-            notifPanel.classList.remove('is-open');
-            notifBtn.setAttribute('aria-expanded', 'false');
-            notifPanel.setAttribute('aria-hidden', 'true');
-        };
-        const toggleNotif = (e) => {
-            e.stopPropagation();
-            notifPanel.classList.contains('is-open') ? closeNotif() : openNotif();
-        };
+            function wireModal(openBtnId, modalId) {
+                const openBtn = document.getElementById(openBtnId);
+                const modal   = document.getElementById(modalId);
+                if (!openBtn || !modal) return;
 
-        on(notifBtn, 'click', toggleNotif);
-        on(document, 'click', (e) => {
-            if (!notifPanel.contains(e.target) && !notifBtn.contains(e.target)) closeNotif();
-        });
-        on(document, 'keydown', (e) => { if (e.key === 'Escape') closeNotif(); });
-        });
+                const overlay = qs(modal, '.modal__overlay');
+                const closeX  = qs(modal, '.modal__close');
+                const cancel  = qs(modal, '.js-cancel');
+
+                const setNow = () => {
+                const now  = new Date();
+                const date = now.toLocaleDateString('vi-VN');
+                const time = now.toLocaleTimeString('vi-VN', { hour12: false });
+                const dateInput = qs(modal, 'input[data-date]');
+                const timeInput = qs(modal, 'input[data-time]');
+                if (dateInput) dateInput.value = date;
+                if (timeInput) timeInput.value = time;
+                };
+
+                const autosizeReadonly = () => {
+                qsa(modal, 'textarea.js-autosize').forEach(t => {
+                    t.style.height = 'auto';
+                    t.style.overflow = 'hidden';
+                    t.style.height = t.scrollHeight + 'px';
+                });
+                };
+
+                const open = () => {
+                modal.classList.add('is-open');
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                setNow();
+                autosizeReadonly();
+                };
+
+                const close = () => {
+                modal.classList.remove('is-open');
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                };
+
+                on(openBtn, 'click', open);
+                on(overlay, 'click', close);
+                on(closeX, 'click', close);
+                on(cancel, 'click', close);
+                on(document, 'keydown', e => { if (e.key === 'Escape') close(); });
+            };
+
+            // Các modal khác
+            wireModal('approveBtn', 'approveModal');
+            wireModal('rejectBtn', 'rejectModal');
+            // 👉 Thêm dòng này cho nút Đăng Ký
+            wireModal('openRegBtn', 'idModal');
+
+            // Notification dropdown
+            const btn   = document.getElementById('notifBtn');
+            const panel = document.getElementById('notifPanel');
+            if (btn && panel) {
+                const mark  = qs(panel, '.mark-read');
+
+                const open  = () => {
+                panel.classList.add('is-open');
+                btn.setAttribute('aria-expanded', 'true');
+                panel.setAttribute('aria-hidden', 'false');
+                };
+                const close = () => {
+                panel.classList.remove('is-open');
+                btn.setAttribute('aria-expanded', 'false');
+                panel.setAttribute('aria-hidden', 'true');
+                };
+                const toggle = e => {
+                e.stopPropagation();
+                panel.classList.contains('is-open') ? close() : open();
+                };
+
+                on(btn, 'click', toggle);
+                on(document, 'click', e => {
+                if (!panel.contains(e.target) && !btn.contains(e.target)) close();
+                });
+                on(document, 'keydown', e => { if (e.key === 'Escape') close(); });
+            }
+            })();
     </script>
-    </body>
+</body>
 </html>

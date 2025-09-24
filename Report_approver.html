@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Báo Cáo Sử Dụng – TBS Logistics</title>
+  <link rel="stylesheet" href="Report_approver.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand">
+          <img src="./Assets/Logo.png" alt="TBS Logistics" class="logo" />
+        </div>
+        <nav class="topnav">
+            <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="18" height="18" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    stroke-width="2" 
+                    stroke-linecap="round" 
+                    stroke-linejoin="round">
+                    <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V9.5z"/>
+                </svg>
+                Trang Chủ
+            </a>
+            <a href="#">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"/>
+                    <circle cx="12" cy="19" r="1" />
+                </svg>
+                Thông Báo
+            </a>
+        </nav>
+    </header>
+
+    <div class="layout">
+        <aside class="sidenav">
+            <a href="Dashboard_approver.html">
+                <div class="side-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="14" rx="2"/>
+                        <path d="M7 8h10M7 12h6"/>
+                    </svg>
+                    <span>Đăng Kí</span>
+                </div>
+            </a>
+
+            <a href="request-approver.html">
+                <div class="side-item">
+                    <svg <svg xmlns="http://www.w3.org/2000/svg" 
+                        width="20" height="20" 
+                        viewBox="0 0 24 24" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        stroke-width="2" 
+                        stroke-linecap="round" 
+                        stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <path d="M9 15l2 2 4-4"/>
+                    </svg>
+                    <span>Duyệt</span>
+                </div>
+            </a>
+
+            <a href="Report_approver.html">
+                <div class="side-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 3h18v14H3z"/>
+                        <path d="M8 21h8"/>
+                    </svg>
+                    <span>Báo Cáo</span>
+                </div>
+            </a>
+        </aside>
+        <main class="main">
+            <section class="card report-card">
+                <h2 class="card-title">Báo Cáo</h2>
+
+                      <!-- Tabs -->
+                <div class="stats">
+                    <div class="stat">
+                        <div class="value" id="statRooms">8</div>
+                        <div class="label">Phòng họp</div>
+                    </div>
+                    <div class="stat">
+                        <div class="value" id="statRegistrations">12</div>
+                        <div class="label">Lượt đăng ký</div>
+                    </div>
+                    <div class="stat">
+                        <div class="value" id="statApproved">9</div>
+                        <div class="label">Duyệt đăng ký</div>
+                    </div>
+                </div>
+
+                <!-- Charts area -->
+                <div class="charts">
+                    <!-- Biểu đồ cột bên trái -->
+                    <div class="chart-left">
+                        <div class="chart-title">Số Lần Sử Dụng Phòng Họp Theo Tuần</div>
+                        <div class="chart-box grid">
+                            <!-- Chỉ là placeholder lưới + vài cột mô phỏng -->
+                            <div class="bar b1"></div>
+                            <div class="bar b2"></div>
+                            <div class="bar b3"></div>
+                            <div class="bar b4"></div>
+                            <div class="bar b5"></div>
+                            <div class="bar b6"></div>
+                        </div>
+                        <div class="legend">
+                            <span class="dot dot-approve"></span> Duyệt 
+                            <span class="dot dot-reject"></span> Từ Chối
+                        </div>
+                    </div>
+
+                    <!-- Đường phân cách dọc -->
+                    <div class="v-divider"></div>
+
+                    <!-- Biểu đồ tròn bên phải -->
+                    <div class="chart-right">
+                        <div class="chart-title">Tỉ Lệ Nhân Viên / Đơn Vị Đặt Lịch Phòng Họp</div>
+                        <div class="chart-pie">
+                            <!-- placeholder hình tròn phân mảnh -->
+                            <div class="pie">
+                                <div class="slice slice-a"></div>
+                                <div class="slice slice-b"></div>
+                            </div>
+                            <div class="pie-legend">
+                                <span><span class="dot dot-unit"></span> Đơn Vị</span>
+                                <span><span class="dot dot-staff"></span> Nhân Viên</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                      <!-- Table + Export -->
+                <div class="table-head">
+                    <h3>Báo Cáo Chi Tiết</h3>
+                    <button class="btn export">Xuất File</button>
+                </div>
+
+                <div class="table-wrap">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Phòng</th>
+                                <th>Ngày</th>
+                                <th>Giờ</th>
+                                <th>Trạng Thái</th>
+                                <th>Duyệt Đăng Kí</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ICD 30</td>
+                                <td>12/09/2025</td>
+                                <td>09:00 - 10:30</td>
+                                <td><span class="badge badge-approve">Đã duyệt</span></td>
+                                <td>Nguyễn A</td>
+                            </tr>
+                            <tr>
+                                <td>Kho 5</td>
+                                <td>13/09/2025</td>
+                                <td>13:00 - 15:00</td>
+                                <td><span class="badge badge-pending">Chờ duyệt</span></td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td>Kho 7</td>
+                                <td>14/09/2025</td>
+                                <td>15:00 - 17:00</td>
+                                <td><span class="badge badge-reject">Từ chối</span></td>
+                                <td>Trần B</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+  </body>
+</html>

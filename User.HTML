@@ -67,10 +67,18 @@
     <div class="layout">
         <aside class="sidenav">
             <div class="side-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"stroke-width="2">
-                    <path d="M4 6h16M4 12h16M4 18h16"/>
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="18" height="18" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    stroke-width="2" 
+                    stroke-linecap="round" 
+                    stroke-linejoin="round">
+                    <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V9.5z"/>
                 </svg>
-                <span>Menu</span>
+                <span>Phòng Họp</span>
+                </a>
             </div>
 
             <div class="side-item">
@@ -78,7 +86,7 @@
                     <circle cx="12" cy="8" r="4"/>
                     <path d="M4 20a8 8 0 0116 0"/>
                 </svg>
-                <span>Thông Tin Cá Nhân</span>
+                <span>Người Dùng</span>
             </div>
 
             <div class="side-item">
@@ -266,63 +274,62 @@
     </div>
     <!-- SCRIPT -->
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // ===== Helpers (bắt buộc có) =====
-      const on  = (el, evt, fn) => el && el.addEventListener(evt, fn);
-      const qs  = (root, sel)   => root ? root.querySelector(sel) : null;
+        document.addEventListener('DOMContentLoaded', () => {
+        // ===== Helpers (bắt buộc có) =====
+        const on  = (el, evt, fn) => el && el.addEventListener(evt, fn);
+        const qs  = (root, sel)   => root ? root.querySelector(sel) : null;
 
-      // ===== Modal: Thêm Người Dùng =====
-      const openBtn   = document.getElementById('openRegBtn');
-      const modal     = document.getElementById('idModal');
-      const overlay   = qs(modal, '.modal__overlay');
-      const btnX      = qs(modal, '.modal__close');
-      const btnCancel = qs(modal, '.js-cancel');
+        // ===== Modal: Thêm Người Dùng =====
+        const openBtn   = document.getElementById('openRegBtn');
+        const modal     = document.getElementById('idModal');
+        const overlay   = qs(modal, '.modal__overlay');
+        const btnX      = qs(modal, '.modal__close');
+        const btnCancel = qs(modal, '.js-cancel');
 
-      const openUserModal = () => {
-        if (!modal) return;
-        modal.classList.add('is-open');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-      };
-      const closeUserModal = () => {
-        if (!modal) return;
-        modal.classList.remove('is-open');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-      };
+        const openUserModal = () => {
+            if (!modal) return;
+            modal.classList.add('is-open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        };
+        const closeUserModal = () => {
+            if (!modal) return;
+            modal.classList.remove('is-open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        };
 
-      on(openBtn, 'click', openUserModal);
-      on(overlay, 'click', closeUserModal);
-      on(btnX, 'click', closeUserModal);
-      on(btnCancel, 'click', closeUserModal);
-      on(document, 'keydown', e => { if (e.key === 'Escape') closeUserModal(); });
+        on(openBtn, 'click', openUserModal);
+        on(overlay, 'click', closeUserModal);
+        on(btnX, 'click', closeUserModal);
+        on(btnCancel, 'click', closeUserModal);
+        on(document, 'keydown', e => { if (e.key === 'Escape') closeUserModal(); });
 
-      // ===== Notification dropdown =====
-      const notifBtn   = document.getElementById('notifBtn');
-      const notifPanel = document.getElementById('notifPanel');
+        // ===== Notification dropdown =====
+        const notifBtn   = document.getElementById('notifBtn');
+        const notifPanel = document.getElementById('notifPanel');
 
-      const openNotif = () => {
-        notifPanel.classList.add('is-open');
-        notifBtn.setAttribute('aria-expanded', 'true');
-        notifPanel.setAttribute('aria-hidden', 'false');
-      };
-      const closeNotif = () => {
-        notifPanel.classList.remove('is-open');
-        notifBtn.setAttribute('aria-expanded', 'false');
-        notifPanel.setAttribute('aria-hidden', 'true');
-      };
-      const toggleNotif = (e) => {
-        e.stopPropagation();
-        notifPanel.classList.contains('is-open') ? closeNotif() : openNotif();
-      };
+        const openNotif = () => {
+            notifPanel.classList.add('is-open');
+            notifBtn.setAttribute('aria-expanded', 'true');
+            notifPanel.setAttribute('aria-hidden', 'false');
+        };
+        const closeNotif = () => {
+            notifPanel.classList.remove('is-open');
+            notifBtn.setAttribute('aria-expanded', 'false');
+            notifPanel.setAttribute('aria-hidden', 'true');
+        };
+        const toggleNotif = (e) => {
+            e.stopPropagation();
+            notifPanel.classList.contains('is-open') ? closeNotif() : openNotif();
+        };
 
-      on(notifBtn, 'click', toggleNotif);
-      on(document, 'click', (e) => {
-        if (!notifPanel.contains(e.target) && !notifBtn.contains(e.target)) closeNotif();
-      });
-      on(document, 'keydown', (e) => { if (e.key === 'Escape') closeNotif(); });
-    });
-</script>
-
+        on(notifBtn, 'click', toggleNotif);
+        on(document, 'click', (e) => {
+            if (!notifPanel.contains(e.target) && !notifBtn.contains(e.target)) closeNotif();
+        });
+        on(document, 'keydown', (e) => { if (e.key === 'Escape') closeNotif(); });
+        });
+    </script>
 </body>
 </html>

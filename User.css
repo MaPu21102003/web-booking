@@ -27,8 +27,8 @@ html,body{height:100%}
 body{
   margin:0;
   font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif;
-  color:var(--text);
-  background:var(--bg);
+  color: var(--text);
+  background: var(--bg);
 }
 
 .topbar{
@@ -37,7 +37,7 @@ body{
   z-index:30;
   height:50px; 
   display:flex; 
-  align-items:center; 
+  align-items: center; 
   justify-content:space-between;
   padding:0 18px 0 16px; 
   background:var(--peach); 
@@ -45,9 +45,9 @@ body{
 }
 
 .brand{
-    display:flex; 
-    align-items:center; 
-    gap:10px; 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
     font-weight: 800;
 }
 
@@ -114,7 +114,7 @@ background:var(--sub);
 }
 
 .main{
-  padding:22px 24px 100px; 
+  padding:22px 24px 80px; 
   background:linear-gradient(180deg,#ffffff 40%, #fff 40%)
 }
 .card{
@@ -171,9 +171,9 @@ background:var(--sub);
   padding:8px; 
   z-index:100;
   opacity:0; 
-  transform:translateY(-6px); 
-  pointer-events:none;
-  transition:opacity .18s ease, transform .18s ease;
+  transform: translateY(-6px); 
+  pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease;
 }
 .notif-panel.is-open{
   opacity:1; 

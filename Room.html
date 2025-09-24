@@ -44,7 +44,7 @@
                                 <button class="btn small gray">Từ chối</button>
                             </div>
                         </div>
-                        <div class="notif-item unread approver">
+                        <div class="notif-item approver ">
                             <div class="title">Yêu cầu mới: Phòng ICD30</div>
                             <div class="msg">Trần Thị B (Nhân Sự) đặt phòng 07:30 – 11:00 25/09</div>
                             <div class="actions">
@@ -63,10 +63,18 @@
     <div class="layout">
         <aside class="sidenav">
             <div class="side-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"stroke-width="2">
-                    <path d="M4 6h16M4 12h16M4 18h16"/>
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="18" height="18" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    stroke-width="2" 
+                    stroke-linecap="round" 
+                    stroke-linejoin="round">
+                    <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V9.5z"/>
                 </svg>
-                <span>Menu</span>
+                <span>Phòng Họp</span>
+                </a>
             </div>
 
             <div class="side-item">
@@ -74,7 +82,7 @@
                     <circle cx="12" cy="8" r="4"/>
                     <path d="M4 20a8 8 0 0116 0"/>
                 </svg>
-                <span>Thông Tin Cá Nhân</span>
+                <span>Người Dùng</span>
             </div>
 
             <div class="side-item">
@@ -93,6 +101,87 @@
                 <span>Báo Cáo</span>
             </div>
         </aside>
+        <main class="main">
+            <section class="card page">
+                <h2 class="title">Quản Lí Phòng Họp</h2>
+
+                <!-- TOOLBAR -->
+                <div class="toolbar">
+                    <div class="search">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>
+                        </svg>
+                        <input type="text" placeholder="Tìm kiếm..." />
+                    </div>
+
+                    <div class="filters">
+                        <select>
+                            <option value="">Phòng Ban</option>
+                            <option>Kho Vận</option>
+                            <option>Kế Toán</option>
+                            <option>IT</option>
+                            <option>Nhân Sự</option>
+                        </select>
+                        <select>
+                            <option value="">Vai Trò</option>
+                            <option>Nhân viên</option>
+                            <option>Quản lý</option>
+                            <option>Quản trị hệ thống</option>
+                        </select>
+                        <select>
+                            <option value="">Trạng Thái</option>
+                            <option>Hoạt động</option>
+                            <option>Khoá</option>
+                            <option>Chờ kích hoạt</option>
+                        </select>
+                    </div>
+
+                    <div class="actions actions-left">
+                      <button id="openRegBtn" class="btn">Thêm Phòng Họp</button>
+                    </div>
+                </div>
+
+                <!-- BẢNG -->
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Họ Tên</th>
+                                <th>Email</th>
+                                <th>Phòng Ban</th>
+                                <th>Vai Trò</th>
+                                <th>Trạng Thái</th>
+                                <th Style="width:60px"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Nguyễn Văn A</td>
+                                <td>a.nguyen@tbs.com</td>
+                                <td>IT</td>
+                                <td>Quản lý</td>
+                                <td><span class="badge ok">Hoạt động</span></td>
+                                <td class="actions">
+                                  <button class="btn ghost">Sửa</button>
+                                  <button class="btn ghost danger">Khoá</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Trần Thị B</td>
+                                <td>b.tran@tbs.com</td>
+                                <td>Kho Vận</td>
+                                <td>Nhân viên</td>
+                                <td><span class="badge warn">Chờ kích hoạt</span></td>
+                                <td class="actions">
+                                    <button class="btn ghost">Sửa</button>
+                                    <button class="btn">Kích hoạt</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
     </div>
 
     <!-- MODAL -->
@@ -107,46 +196,53 @@
             <form action="#" method="post">
                 <div class="form-grid">
                     <label class="field">
-                        <span>ID Phòng <b>*</b></span>
-                        <input name="hoten" type="text" placeholder="Vd: Phòng 102..." required>
+                        <span>ID Phòng Họp <b>*</b></span>
+                        <input name="hoten" type="text" placeholder="VD: 001..." required>
                     </label>
 
                     <label class="field">
-                        <span>Vị Trí</span>
-                        <select name="vitri">
-                            <option value="">-- Chọn vị trí --</option>
-                            <option>Kho ICD30</option>
-                            <option>Kho 3</option>
-                            <option>Kho 5</option>
-                            <option>Kho 6</option>
-                            <option>Kho 7</option>
-                            <option>Kho 8</option>
+                        <san>Khu Vực<span>
+                        <select class="select">
+                            <option value="">Chọn Phòng Họp</option>
+                            <option>Phòng ICD 30</option>
+                            <option>Phòng Kho 3</option>
+                            <option>Phòng Kho 5</option>
+                            <option>Phòng Kho 6 /01</option>
+                            <option>Phòng Kho 6 /02</option>
+                            <option>Phòng Kho 6 /03</option>
+                            <option>Phòng Kho 7</option>
+                            <option>Phòng Kho 8</option>
                         </select>
                     </label>
 
                     <label class="field">
-                        <span>Sức chứa <b>*</b></span>
-                        <input name="succhua" type="" placeholder="Sức chứa..." required>
+                        <span>Sức Chứa <b>*</b></span>
+                        <input name="sdt" type="tel" placeholder="VD: 100 người ..." required>
                     </label>
 
                     <label class="field">
-                        <span>Ngày nhập</span>
-                        <input name="ngaynhap" type="date" required>
+                        <span>Ngày tạo</span>
+                        <input name="ngay" type="date" required>
                     </label>
 
                     <label class="field">
-                        <span>Trạng Thái</span>
-                        <select name="vitri">
-                            <option value="">-- Chọn trạng thái --</option>
-                            <option>Hoạt Động</option>
-                            <option>Tạm Dừng</option>
-                            <option>Đóng</option>
-                        </select>
+                        <span>Số Người Tham Gia</span>
+                        <input name="nguoithamgia" type="number" placeholder="Số người tham gia...">
                     </label>
 
                     <label class="field">
+                        <span>Thiết Bị</span>
+                        <input name="Thiết Bị" rows="3" placeholder="VD:1 máy chiếu, 1 remote,..."></textbox>
+                    </label>
+
+                    <label class="field col-2">
+                        <span>Quy Định Sử Dụng</span>
+                        <textarea name="quydinh" rows="10" placeholder="Nhập văn bản..." ></textarea>
+                    </label>
+
+                    <label class="field col-2">
                         <span>Ghi chú</span>
-                        <div class="editable" contenteditable="true" data-placeholder="Ghi chú..."></div>
+                        <input name="ghichu" rows="3" placeholder="Ghi chú..."></textbox>
                     </label>
                 </div>
 
@@ -160,69 +256,65 @@
 
     <!-- SCRIPT --> 
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const openBtn = document.getElementById('openRegBtn');
-        const modal   = document.getElementById('idModal');
-        if (!openBtn || !modal) return;
+        document.addEventListener('DOMContentLoaded', () => {
+          // Helpers
+          const on = (el, evt, fn) => el && el.addEventListener(evt, fn);
+          const qs = (root, sel) => (root ? root.querySelector(sel) : null);
 
-        const overlay = modal.querySelector('.modal__overlay');
-        const btnX    = modal.querySelector('.modal__close');
-        const btnCancel = modal.querySelector('.js-cancel');
+          // ===== Modal (nếu có) =====
+          const openBtn = document.getElementById('openRegBtn'); // trang này đang chưa có nút này
+          const modal   = document.getElementById('idModal');
 
-        const setNow = (container) => {
-        const now = new Date();
+          if (openBtn && modal) {
+            const overlay   = qs(modal, '.modal__overlay');
+            const btnX      = qs(modal, '.modal__close');
+            const btnCancel = qs(modal, '.js-cancel');
 
-          // Lấy ngày theo định dạng Việt Nam
-          const dateStr = now.toLocaleDateString('vi-VN'); // ví dụ: 15/9/2025
+            const openModal = () => {
+              modal.classList.add('is-open');
+              modal.setAttribute('aria-hidden', 'false');
+              document.body.style.overflow = 'hidden';
+            };
+            const closeModal = () => {
+              modal.classList.remove('is-open');
+              modal.setAttribute('aria-hidden', 'true');
+              document.body.style.overflow = '';
+            };
 
-          // Gán vào ô tương ứng trong modal
-          const dateInput = container.querySelector('input[data-date]');
+            on(openBtn, 'click', openModal);
+            on(overlay, 'click', closeModal);
+            on(btnX, 'click', closeModal);
+            on(btnCancel, 'click', closeModal);
+            on(document, 'keydown', e => { if (e.key === 'Escape') closeModal(); });
+          }
 
-          if (dateInput) dateInput.value = dateStr;
-          };
-          
-        const open = () => {
-          modal.classList.add('is-open');
-          modal.setAttribute('aria-hidden', 'false');
-          document.body.style.overflow = 'hidden';
-        };
-        const close = () => {
-          modal.classList.remove('is-open');
-          modal.setAttribute('aria-hidden', 'true');
-          document.body.style.overflow = '';
-        };
+          // ===== Notification dropdown (luôn chạy) =====
+          const notifBtn   = document.getElementById('notifBtn');
+          const notifPanel = document.getElementById('notifPanel');
 
-        openBtn.addEventListener('click', open);
-        overlay && overlay.addEventListener('click', close);
-        btnX && btnX.addEventListener('click', close);
-        btnCancel && btnCancel.addEventListener('click', close);
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+          if (notifBtn && notifPanel) {
+            const openNotif = () => {
+              notifPanel.classList.add('is-open');
+              notifBtn.setAttribute('aria-expanded', 'true');
+              notifPanel.setAttribute('aria-hidden', 'false');
+            };
+            const closeNotif = () => {
+              notifPanel.classList.remove('is-open');
+              notifBtn.setAttribute('aria-expanded', 'false');
+              notifPanel.setAttribute('aria-hidden', 'true');
+            };
+            const toggleNotif = (e) => {
+              e.stopPropagation();
+              notifPanel.classList.contains('is-open') ? closeNotif() : openNotif();
+            };
 
-        // ===== Notification dropdown =====
-        const notifBtn   = document.getElementById('notifBtn');
-        const notifPanel = document.getElementById('notifPanel');
-
-        const openNotif = () => {
-          notifPanel.classList.add('is-open');
-          notifBtn.setAttribute('aria-expanded', 'true');
-          notifPanel.setAttribute('aria-hidden', 'false');
-        };
-        const closeNotif = () => {
-          notifPanel.classList.remove('is-open');
-          notifBtn.setAttribute('aria-expanded', 'false');
-          notifPanel.setAttribute('aria-hidden', 'true');
-        };
-        const toggleNotif = (e) => {
-          e.stopPropagation();
-          notifPanel.classList.contains('is-open') ? closeNotif() : openNotif();
-        };
-
-        on(notifBtn, 'click', toggleNotif);
-        on(document, 'click', (e) => {
-          if (!notifPanel.contains(e.target) && !notifBtn.contains(e.target)) closeNotif();
+            on(notifBtn, 'click', toggleNotif);
+            on(document, 'click', (e) => {
+              if (!notifPanel.contains(e.target) && !notifBtn.contains(e.target)) closeNotif();
+            });
+            on(document, 'keydown', (e) => { if (e.key === 'Escape') closeNotif(); });
+          }
         });
-        on(document, 'keydown', (e) => { if (e.key === 'Escape') closeNotif(); });
-      });
     </script>
 </body>
 </html>
